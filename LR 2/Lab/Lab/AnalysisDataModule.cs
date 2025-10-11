@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Security;
 
-namespace Lab
+namespace ConsoleApp1
 {
-    internal class AnalysisDataModule
+    public class AnalysisDataModule
     {
-        static public void SortCustomers(List<string> Customers, List<int> counts)
+        static public void Sortcustomers(List<string> customers, List<int> counts)
         {
             for (int i = 0; i < counts.Count; ++i)
             {
@@ -21,12 +18,23 @@ namespace Lab
                         counts[j] = counts[j + 1];
                         counts[j + 1] = temp_counts;
 
-                        string temp_Customers = Customers[j];
-                        Customers[j] = Customers[j + 1];
-                        Customers[j + 1] = temp_Customers;
+                        string temp_customers = customers[j];
+                        customers[j] = customers[j + 1];
+                        customers[j + 1] = temp_customers;
                     }
                 }
             }
+        }
+
+        static public double CalculateAverage(List<int> counts)
+        {
+            int sum = 0;
+            foreach (int count in counts)
+            {
+                sum += count;
+            }
+
+            return sum / counts.Count;
         }
     }
 }
