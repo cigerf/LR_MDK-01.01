@@ -21,5 +21,17 @@ namespace Lab
 
             return -1;
         }
+        static public (List<string>, List<int>) FindAllCustomersByServices(int indexService,
+                                                             List<string>[] allService,
+                                                             List<int>[] counts)
+        {
+            List<string> CustomersByServices = new List<string>();
+            List<int> countsByServices = new List<int>();
+
+            CustomersByServices = allService[indexService];
+            countsByServices = counts[indexService];
+
+            return (CustomersByServices, countsByServices);
+        }
     }
 }
