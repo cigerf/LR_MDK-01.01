@@ -10,7 +10,9 @@ namespace Lab
     {
         static void Main()
         {
-            string[] services = new string[] { "Парихмахерские услуги", "Маникюр", "Педикюр" };
+            string[] services = new string[] { "Массаж", "Маникюр", "Педикюр" };
+            var (customers, counts) = InputModule.InputCustomersByServices();
+            string userQuery = InputModule.InputUserQuery();
         }
     }
 }

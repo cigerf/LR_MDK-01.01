@@ -37,5 +37,11 @@ namespace Lab
 
             return (CustomersByServices, counts);
         }
+        static public string InputUserQuery()
+        {
+            Console.Write("Введите, пожалуйста, услугу (Массаж/Маникюр/Педикюр): ");
+            return Console.ReadLine();
+        }
+
     }
 }
