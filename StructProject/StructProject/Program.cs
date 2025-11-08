@@ -1,10 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
 namespace StructProject
 {
     class Program
     {
+        static public List<double> CalcLenAllVectors(Vector[] Vectors)
+        {
+            List<double> lengt = new List<double>();
+            for (int i = 0; i < Vectors.Length; i++)
+            {
+                lengt.Add(Point.CalcLenVector(Vectors[i].begin, Vectors[i].end));
+            }
+            return lengt.Join(
+        }
         static void Main()
         {
             Point beginVector = new Point();
@@ -45,9 +57,10 @@ namespace StructProject
 
                 Thread.Sleep(2000);
             }
+            Console.WriteLine(CalcLenAllVectors)
 
-            Console.WriteLine("Длина 5 вектора = " 
-                + Point.CalcLenVector(allVectors[4].begin, allVectors[4].end));
+            //Console.WriteLine("Длина 5 вектора = " 
+               // + Point.CalcLenVector(allVectors[4].begin, allVectors[4].end));
 
         }
     }
