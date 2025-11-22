@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F6A1869-C873-4C0D-B4A0-33615CD9E3BB}</ProjectGuid>
+    <ProjectGuid>{784A72D0-D02C-4B78-B21E-237946A40A0E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lab</RootNamespace>
-    <AssemblyName>Lab</AssemblyName>
+    <RootNamespace>Race</RootNamespace>
+    <AssemblyName>Race</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalysisData.cs" />
-    <Compile Include="Supply.cs" />
+    <Compile Include="Car.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
