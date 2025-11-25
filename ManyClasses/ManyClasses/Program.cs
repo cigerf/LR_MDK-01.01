@@ -23,6 +23,8 @@ namespace ManyClasses
             storage.SetLocation("Торжок, Ул. Студенческая 3");
             storage.SetProductQuantity(mers, 2);
             storage.SetProductQuantity(yaz, 5);
+
+
         }
     }
 }

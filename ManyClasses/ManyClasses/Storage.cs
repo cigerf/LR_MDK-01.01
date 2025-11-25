@@ -10,7 +10,7 @@ namespace ManyClasses
     {
         private int id_;
         private string location_;
-        private Dictionary<Product, int> products_;
+        private Dictionary<Product, int> products_ = new Dictionary<Product, int>();
 
         public void SetId(int id)
         {
@@ -24,6 +24,9 @@ namespace ManyClasses
         {
             products_.Add(product, quantity);
         }
-
+        public Dictionary<Product, int> GetProductQuantity()
+        {
+            return products_;
+        }
     }
 }
