@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,15 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-        /*
-        public string datasourse()
+        
+        public List<User> datasourse()
         {
-
+            List<User> users = new List<User>();
+            FileUsersStorage UserInformation = new FileUsersStorage();
+            users = UserInformation.Load();
+            return users;
         }
-        */
+        
 
         private void AuthorizationButton_Click(object sender, EventArgs e)
         {
@@ -42,9 +46,8 @@ namespace WindowsFormsApp2
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            List<User> users = new List<User>();
             FileUsersStorage UserInformation = new FileUsersStorage();
-            users = UserInformation.Load();
+            List<User> users = UserInformation.Load();
             foreach (User element in users)
             {
                 LoginComboBox.Items.Add(element.GetLogin());

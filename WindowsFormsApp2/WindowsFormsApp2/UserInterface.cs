@@ -9,6 +9,7 @@ namespace WindowsFormsApp2
     interface IUserInterface
     {
         List<User> Load();
-
+        bool CheckUser(string login);
+        void AddUser(User user);
     }
 }
