@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,11 @@ using System.Windows.Forms;
 
 namespace LR3
 {
-    
+
     public partial class MainForm : Form
     {
-        private Dictionary<string, List<Product>> product_ = new Dictionary<string, List<Product>>();
+        Dictionary<string, List<Product>> product_ = new Dictionary<string, List<Product>>();
+        Dictionary<string, int> orderItems_ = new Dictionary<string, int>();
         public MainForm()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace LR3
             );
 
             product_.Add("Овощи",
-                new List<Product>() 
+                new List<Product>()
                 {
                     new Product("Морковка", 65, "ООО Фермерская лавка",new DateTime(2026, 02, 28), "Магнит", "Морковка.png"),
                 }
@@ -47,7 +49,7 @@ namespace LR3
         private void ProductComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Product selectedProduct = ProductComboBox.SelectedItem as Product;
-            if (selectedProduct != null) 
+            if (selectedProduct != null)
             {
                 PriceLabel.Text = selectedProduct.Price;
                 ManufacturerLabel.Text = selectedProduct.Manufacturer;
@@ -59,10 +61,27 @@ namespace LR3
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
+            
             Product selectedProduct = ProductComboBox.SelectedItem as Product;
             if (selectedProduct != null)
             {
-                
+                string ProductName = selectedProduct.Name;
+                int quantity = (int)QuantityNumericUpDown.Value;
+                if (orderItems_.ContainsKey(ProductName))
+                {
+                    orderItems_[ProductName] += quantity;
+                }
+                else
+                {
+                    orderItems_[ProductName] = quantity;
+                }
+                string orderText = "Заказ:\n";
+                foreach (var item in orderItems_)
+                {
+                    orderText += $"{item.Key}: {item.Value} шт.\n";
+                }
+
+                MessageBox.Show(orderText, "Текущий заказ");
             }
         }
     }

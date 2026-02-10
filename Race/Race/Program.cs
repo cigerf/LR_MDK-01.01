@@ -25,14 +25,14 @@ namespace Race
                     int NumberSpace = car.GetSpeed() / 50 * time;
                     for (int i = 0; i < NumberSpace; i++)
                     {
-                        Console.Write(" ");
+                        Console.Write("=");
                     }
                     Console.Write(car.GetModel());
                     Console.WriteLine();
-                    if (NumberSpace> finish)
+                    if (NumberSpace > finish)
                     {
                         Console.Clear();
-                        Console.WriteLine("Победитель - "  + car.GetModel());
+                        Console.WriteLine("Победитель - " + car.GetModel());
                         return;
                     }
                     Console.WriteLine("============================================================================================================================================================================================================================================");
