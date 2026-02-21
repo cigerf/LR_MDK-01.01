@@ -32,6 +32,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.DeleteStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableView = new WinForms.UsersTableView();
+            this.AddStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableView)).BeginInit();
             this.SuspendLayout();
@@ -39,7 +40,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DeleteStripButton});
+            this.DeleteStripButton,
+            this.AddStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -66,6 +68,16 @@
             this.tableView.Size = new System.Drawing.Size(800, 450);
             this.tableView.TabIndex = 0;
             // 
+            // AddStripButton
+            // 
+            this.AddStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AddStripButton.Image")));
+            this.AddStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddStripButton.Name = "AddStripButton";
+            this.AddStripButton.Size = new System.Drawing.Size(23, 22);
+            this.AddStripButton.Text = "AddStripButton";
+            this.AddStripButton.Click += new System.EventHandler(this.AddStripButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +99,7 @@
         private UsersTableView tableView;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton DeleteStripButton;
+        private System.Windows.Forms.ToolStripButton AddStripButton;
     }
 }
 

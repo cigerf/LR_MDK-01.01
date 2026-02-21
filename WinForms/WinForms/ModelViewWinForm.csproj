@@ -63,6 +63,9 @@
     <Compile Include="UsersTableView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

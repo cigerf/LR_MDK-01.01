@@ -34,5 +34,18 @@ namespace WinForms
                 presenter_.RemoveUsers(selectedUser);
             }
         }
+
+        private void AddStripButton_Click(object sender, EventArgs e)
+        {
+            AddUserForm addUser = new AddUserForm();
+            if(addUser.ShowDialog() ==DialogResult.OK)
+            {
+                if (addUser.user.Login != "")
+                {
+                    presenter_.AddUser(addUser.user);
+                }
+                else MessageBox.Show("Введите логин");
+            }
+        }
     }
 }
