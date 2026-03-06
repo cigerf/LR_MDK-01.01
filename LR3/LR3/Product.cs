@@ -14,13 +14,16 @@ namespace LR3
         private DateTime shelfLifeDate_;
         private string provider_;
         private string imagePath_;
-        public Product(string name, int price, string manufacturer, DateTime date, string provider, string imagePath)
-        { 
+        public Product(string name, string price, string manufacturer, string date, string provider, string imagePath)
+        {
             name_ = name;
-            price_ = price;
+            if (!int.TryParse(price, out price_))
+            {
+                price_ = 0;
+            }
             manufacturer_ = manufacturer;
-            shelfLifeDate_ = date;
-            provider_ = provider; 
+            shelfLifeDate_ = DateTime.Parse(date);
+            provider_ = provider;
             imagePath_ = imagePath;
         }
         public string Name 
