@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts", "LiveCharts\LiveCharts.csproj", "{40CF6FE5-8F91-48C9-8648-3BB8B1CB7536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesLibrary", "ClassLibrary1\SalesLibrary.csproj", "{62CFAACF-9525-4F05-8CF3-2CA65AEB8D93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40CF6FE5-8F91-48C9-8648-3BB8B1CB7536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40CF6FE5-8F91-48C9-8648-3BB8B1CB7536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40CF6FE5-8F91-48C9-8648-3BB8B1CB7536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40CF6FE5-8F91-48C9-8648-3BB8B1CB7536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62CFAACF-9525-4F05-8CF3-2CA65AEB8D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62CFAACF-9525-4F05-8CF3-2CA65AEB8D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62CFAACF-9525-4F05-8CF3-2CA65AEB8D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62CFAACF-9525-4F05-8CF3-2CA65AEB8D93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7614C622-EF7F-4FB2-8C4A-6F09ABB7DCB4}
+	EndGlobalSection
+EndGlobal
