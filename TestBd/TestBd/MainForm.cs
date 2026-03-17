@@ -11,10 +11,10 @@ using Npgsql;
 
 namespace TestBd
 {
-    public partial class Form1: Form
+    public partial class MainForm: Form
     {
         PgUsersLoader loader = new PgUsersLoader();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             usersDataGridView.DataSource = loader.LoadUsers();

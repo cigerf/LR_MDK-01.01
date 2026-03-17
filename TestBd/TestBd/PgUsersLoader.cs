@@ -17,7 +17,7 @@ namespace TestBd
             var con = new NpgsqlConnection(cs);
 
             con.Open();
-            var sql = "SELECT * FROM myusers";
+            var sql = "SELECT login,password,name,last_name,age FROM myusers";
             var cmd = new NpgsqlCommand(sql, con);
             var reader = cmd.ExecuteReader();
             while (reader.Read())
