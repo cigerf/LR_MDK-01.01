@@ -35,5 +35,12 @@ namespace TestBd
             //MessageBox.Show(string.Join(",", PgUsersLoader.LoadUse));
             //con.Close();
         }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow rows = usersDataGridView.SelectedRows[0];
+            User user = rows.DataBoundItem as User;
+            loader.DeleteUser(user.Login);
+        }
     }
 }
