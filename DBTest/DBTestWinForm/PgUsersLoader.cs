@@ -14,8 +14,8 @@ namespace DBTestWinForm
 {
     public class PgUsersLoader
     {
-        BindingList<User> loader = new BindingList<User>();
-         private const string connectSetting = "Host=192.168.1.48;Username=st50-10;Password=5010;Database=test01";
+        BindingList<User> AllUsers = new BindingList<User>();
+        private const string connectSetting = "Host=192.168.1.48;Username=st50-10;Password=5010;Database=test01";
         public BindingList<User> Load() 
         {
             try
@@ -35,9 +35,9 @@ namespace DBTestWinForm
                         LastName = reader.GetString(3),
                         Age = reader.GetInt32(4),
                     };
-                    loader.Add(user);
+                    AllUsers.Add(user);
                 }
-                return loader;
+                return AllUsers;
             }
             catch(NpgsqlException exception)
             {
@@ -52,18 +52,18 @@ namespace DBTestWinForm
                 bool deleteResult = false;
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
-                var sql = "DELETE FROM myusers Where login = @login";
+                var sql = "DELETE FROM users Where login = @login";
                 var cmd = new NpgsqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@login", Login);              
                     int execute = cmd.ExecuteNonQuery();
                     if (execute > 0)
                     {
                         deleteResult = true;
-                        for (int index = 0; index < loader.Count; index++)
+                        for (int index = 0; index < AllUsers.Count; index++)
                         {
-                            if (loader[index].Login == Login)
+                            if (AllUsers[index].Login == Login)
                             {
-                                loader.RemoveAt(index);
+                                AllUsers.RemoveAt(index);
                                 index--;
                             }
                         }
@@ -90,7 +90,7 @@ namespace DBTestWinForm
                     if (execute > 0)
                     {
                         result = true;
-                        loader.Clear();
+                        AllUsers.Clear();
                     }
                     return result;                
             }
@@ -118,7 +118,7 @@ namespace DBTestWinForm
                 if (execute > 0)
                 {
                     addResult = true;
-                    loader.Add(user);
+                    AllUsers.Add(user);
                 }
                 return addResult;
             }
@@ -135,18 +135,27 @@ namespace DBTestWinForm
                 bool result = false;
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
-                var sql = "UPDATE users SET password = @password, name = @name, age = @age, last_name = @last_name WHERE login = @login";
+                var sql = "UPDATE users SET password = @password, name = @name, age = @age, last_name = @last_name Where login = @login";
                 var cmd = new NpgsqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@login", user.login);
-                cmd.Parameters.AddWithValue("@password", user.password);
-                cmd.Parameters.AddWithValue("@name", user.name);
-                cmd.Parameters.AddWithValue("@age", user.age);
-                cmd.Parameters.AddWithValue("@last_name", user.lastName);
+                cmd.Parameters.AddWithValue("@login", user.Login);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@name", user.Name);
+                cmd.Parameters.AddWithValue("@age", user.Age);
+                cmd.Parameters.AddWithValue("@last_name", user.LastName);
                 int execute = cmd.ExecuteNonQuery();
-                if(execute>0)
+                if (execute > 0)
                 {
                     result = true;
-                    loader.Add(user);
+                    for (int i = 0; i < AllUsers.Count; i++)
+                    {
+                        if (AllUsers[i].Login == user.Login)
+                        {
+                            AllUsers[i].Age = user.Age;
+                            AllUsers[i].Password = user.Password;
+                            AllUsers[i].Name = user.Name;
+                            AllUsers[i].LastName = user.LastName;
+                        }
+                    }
                 }
                 return result;
             }

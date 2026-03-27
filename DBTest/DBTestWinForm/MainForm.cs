@@ -52,5 +52,15 @@ namespace DBTestWinForm
             AddForm.Show();
             
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView.SelectedRows[0];
+            User selectedUser = row.DataBoundItem as User;
+            AddForm AddEditForm = new AddForm(loader);
+            AddEditForm.SetUser(selectedUser);
+            AddEditForm.Show();
+           
+        }
     }
 }
