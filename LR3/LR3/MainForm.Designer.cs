@@ -64,6 +64,7 @@
             this.ProductComboBox.Name = "ProductComboBox";
             this.ProductComboBox.Size = new System.Drawing.Size(192, 21);
             this.ProductComboBox.TabIndex = 1;
+            this.ProductComboBox.SelectedIndexChanged += new System.EventHandler(this.ProductComboBox_SelectedIndexChanged);
             // 
             // ProductPictureBox
             // 

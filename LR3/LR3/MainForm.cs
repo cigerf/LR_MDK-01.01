@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace LR3
 {
-
     public partial class MainForm : Form
     {
         private Dictionary<string, List<Product>> product_ = new Dictionary<string, List<Product>>();
